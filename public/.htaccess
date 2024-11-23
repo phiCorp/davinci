@@ -1,0 +1,38 @@
+RewriteEngine On
+ServerSignature Off
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ ./index.php [L,QSA]
+Options All -Indexes
+
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<FilesMatch "^(?!index\.php$).+$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(env|git|htaccess|htpasswd|bak|old|sql|tar.gz|zip|log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        Header always set X-Frame-Options "DENY" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
+        Header always set X-Content-Type-Options "nosniff"
+        Header unset X-Powered-By
+        Header always unset X-Powered-By
+        <FilesMatch "\.(jpe?g|png|webp|bmp|gif|ico)$">
+            SetEnvIf Origin ":" IS_CORS
+            Header set Access-Control-Allow-Origin "*" env=*IS_CORS*
+        </FilesMatch>
+    </IfModule>
+</IfModule>
+
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>

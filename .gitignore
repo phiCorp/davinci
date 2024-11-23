@@ -1,0 +1,12 @@
+.vscode/
+/vendor/
+composer.lock
+/node_modules
+.env
+.env.backup
+.env.production
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed

@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+
+define('DAVINCI_START', microtime(true));
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$console = new Maya\System\Application(__DIR__);
+
+$console->runConsoleCommands($argv);
+
+$console->terminate();
