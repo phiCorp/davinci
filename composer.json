@@ -17,7 +17,7 @@
   ],
   "require": {
     "ext-pdo": "*",
-    "phicorp/maya": "^1.0",
+    "phicorp/maya": "^1.1",
     "phicorp/moment": "^1.1.0",
     "phicorp/cipher": "^1.0.3",
     "phicorp/mailbox": "^1.0.0"
