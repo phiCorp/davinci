@@ -1,7 +1,5 @@
 <?php
 
-use Maya\Database\Migrations\DBBuilder;
-use Maya\Disk\Directory;
 use Maya\Router\Web\Route;
 
 /*
