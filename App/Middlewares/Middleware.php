@@ -1,9 +1,7 @@
 <?php
 
-namespace App\middlewares;
+namespace App\Middlewares;
 
 use Maya\Http\Middleware\Middleware as MiddlewareMiddleware;
 
-abstract class Middleware extends MiddlewareMiddleware
-{
-}
+abstract class Middleware extends MiddlewareMiddleware {}
