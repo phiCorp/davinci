@@ -9,11 +9,6 @@ Options All -Indexes
 #RewriteCond %{HTTPS} off
 #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-<FilesMatch "^(?!index\.php$).+$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
-
 <FilesMatch "\.(env|git|htaccess|htpasswd|bak|old|sql|tar.gz|zip|log)$">
     Order Allow,Deny
     Deny from all

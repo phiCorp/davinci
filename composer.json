@@ -1,7 +1,7 @@
 {
   "name": "phicorp/davinci",
   "description": "Davinci: where the galaxy meets PHP.",
-  "version": "1.2.2",
+  "version": "1.3.1",
   "type": "project",
   "license": "MIT",
   "authors": [
@@ -17,7 +17,7 @@
   ],
   "require": {
     "ext-pdo": "*",
-    "phicorp/maya": "^1.2",
+    "phicorp/maya": "^1.3",
     "phicorp/moment": "^1.1.0",
     "phicorp/cipher": "^1.0.3",
     "phicorp/mailbox": "^1.0.0"
@@ -32,7 +32,8 @@
       "@php -r \"file_exists('.env') || copy('.env.sample', '.env');\""
     ],
     "post-create-project-cmd": [
-      "@php nova key:generate"
+      "@php nova key:generate",
+      "@php nova welcome"
     ]
   },
   "minimum-stability": "stable",

@@ -9,17 +9,17 @@ return [
         "KEY" => env('APP_KEY'),
         "TITLE" => "DAVINCI",
         "DEBUG" => true,
+        "CHECK_UNUSED_VARIABLES" => true,
         "TIMEZONE" => "Asia/Tehran",
         "PROVIDERS" => [
             SessionProvider::class,
-            AppServiceProvider::class
+            AppServiceProvider::class,
         ],
         "MIDDLEWARES" => [
             "WEB" => [],
             "API" => []
         ]
     ],
-
 
 
     'DATABASE' => [
@@ -35,22 +35,22 @@ return [
     ],
 
 
-
     'ASSETS' => [
-        'VERSION' => '1',
+        'VERSION' => '2.0.0',
         'ALIAS' => [],
         'DL' => [
             'DEFAULT_CACHE' => false,
             'DIRECTORIES' => [
                 'c' => [
                     'PATH' => 'Css',
+                    // 'REAL_PATH' => '',
                     'CACHE' => false,
                     'EXT' => 'css',
                     'MIME' => 'text/css',
                 ],
                 'j' => [
                     'PATH' => 'Js',
-                    'CACHE' => true,
+                    'CACHE' => false,
                     'EXT' => 'js',
                     'MIME' => 'application/javascript',
                 ],
@@ -64,12 +64,11 @@ return [
                     'PATH' => 'Images',
                     'CACHE' => true,
                     'EXT' => 'jpg',
-                    'jpg' => 'image/jpeg',
+                    'MIME' => 'image/jpeg',
                 ],
             ],
         ],
     ],
-
 
 
     'LOGGER' => [
@@ -91,25 +90,23 @@ return [
     ],
 
 
-
     'CACHE' => [
         'CACHE_DIR' => storagePath('/Maya/Cache'),
         'DEFAULT_EXPIRATION' => 3600,
         'ENCRYPTION_KEY' => env('APP_KEY'),
         'CLEANUP_INTERVAL' => 3600,
-        'MAX_MEMORY_CACHE_SIZE' => 10,
+        'MAX_MEMORY_CACHE_SIZE' => 3,
         'ENABLE_ENCRYPTION' => false,
         'ENABLE_COMPRESSION' => false,
     ],
 
 
-
     'VIEW' => [
         'VIEW_FILE_EXTENSION' => '.blade.php',
         'VIEW_DIRECTORY' => basePath('View'),
-        'VIEW_COMPILED_PATH' => storagePath('/Maya/Cache/Views')
+        'VIEW_COMPILED_PATH' => storagePath('/Maya/Cache/Views'),
+        'CACHE' => false,
     ],
-
 
 
     'CORS' => [
@@ -119,7 +116,6 @@ return [
         'max_age' => 86400,
         'supports_credentials' => true,
     ],
-
 
 
     'CSRF' => [],
